@@ -1,0 +1,14 @@
+echo "# ChatFlow_clint_site" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ashikaslam/ChatFlow_clint_site.git
+git push -u origin main
+
+
+
+
+git remote add origin https://github.com/ashikaslam/ChatFlow_clint_site.git
+git branch -M main
+git push -u origin main

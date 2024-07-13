@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>ChatFlow</title>
+	<meta name="description" content="#">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- Bootstrap core CSS -->
+	<link href="dist/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<!-- Swipe core CSS -->
+	<link href="dist/css/swipe.min.css" type="text/css" rel="stylesheet">
+	<!-- Favicon -->
+	<link href="dist/img/favicon.png" type="image/png" rel="icon">
+</head>
+
+<body>
+	<main>
+		<div class="layout">
+			
+
+<!-- Start of Navigation -->
+			<div class="navigation">
+				<div class="container">
+					<div class="inside">
+						<div class="nav nav-tab menu">
+							<button class="btn"><img class="avatar-xl" src="dist/img/avatars/avatar-male-1.jpg"
+									alt="avatar"></button>
+
+							<a href="#members" data-toggle="tab"><i class="material-icons">account_circle</i></a>
+
+							<a href="#discussions" data-toggle="tab" class="active"><i
+									class="material-icons active">chat_bubble_outline</i></a>
+
+							<a href="#notifications" data-toggle="tab" class="f-grow1"><i
+									class="material-icons">notifications_none</i></a>
+
+							<button class="btn mode"><i class="material-icons">brightness_2</i></button>
+
+							<a href="#settings" data-toggle="tab"><i class="material-icons">settings</i></a>
+							
+							<button class="btn power" onclick="visitPage();"><i
+									class="material-icons">power_settings_new</i></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End of Navigation -->
+
+
+
+
+
+<!-- Start of Sidebar -->
+			<div class="sidebar" id="sidebar">
+				<div class="container">
+					<div class="col-md-12">
+						<div class="tab-content">
+
+
+							<!-- Start of Contacts -->
+							<div class="tab-pane fade" id="members">
+								<div class="search">
+									<form class="form-inline position-relative">
+										<input type="search" class="form-control" id="people"
+											placeholder="Search for people...">
+										<button type="button" class="btn btn-link loop"><i
+												class="material-icons">search</i></button>
+									</form>
+
+								</div>
+								
+
+								<div class="contacts">
+									<h1>Contacts</h1>
+									<div class="list-group" id="contacts" role="tablist">
+
+										<!-- single man in all frind -->
+										<a href="#" class="filterMembers all offline contact" data-toggle="list">
+											<img class="avatar-md" src="dist/img/avatars/avatar-male-4.jpg"
+												data-toggle="tooltip" data-placement="top" title="Mildred" alt="avatar">
+											<div class="status">
+												<i class="material-icons offline">fiber_manual_record</i>
+											</div>
+											<div class="data">
+												<h5>Mildred Bennett</h5>
+												<p>London, United Kingdom</p>
+											</div>
+											<div class="person-add">
+												<i class="material-icons">person</i>
+											</div>
+										</a>
+										<!-- single man in all frind -->
+									</div>
+								</div>
+							</div>
+							<!-- End of Contacts -->
+
+
+
+							<!-- Start of Discussions -->
+							<div id="discussions" class="tab-pane fade active show">
+								
+
+								<div class="discussions">
+									
+									<div class="list-group" id="chats" role="tablist">
+
+
+
+
+
+
+
+										<!-- single man in discus -->
+
+										<a href="#list-chat" class="filterDiscussions all unread single"
+											id="list-chat-list5" data-toggle="list" role="tab">
+											<img class="avatar-md" src="dist/img/avatars/avatar-male-4.jpg"
+												data-toggle="tooltip" data-placement="top" title="Mildred" alt="avatar">
+											<div class="status">
+												<i class="material-icons offline">fiber_manual_record</i>
+											</div>
+											<div class="new bg-green">
+												<span>+9</span>
+											</div>
+											<div class="data">
+												<h5>Mildred Bennett</h5>
+												<span>Thu</span>
+												<p>Unfortunately your session today has been cancelled!</p>
+											</div>
+										</a>
+										<!-- single man in discus -->
+
+
+
+
+									</div>
+								</div>
+							</div>
+							<!-- End of Discussions -->
+
+							<!-- Start of Notifications -->
+							<div id="notifications" class="tab-pane fade">
+								
+
+								<div class="notifications">
+									<!-- <h1>Notifications</h1> -->
+									<div class="list-group" id="alerts" role="tablist">
+
+
+
+
+
+
+
+
+
+										<!-- single man in noti -->
+										<a href="#" class="filterNotifications all oldest notification"
+											data-toggle="list">
+											<img class="avatar-md" src="dist/img/avatars/avatar-male-4.jpg"
+												data-toggle="tooltip" data-placement="top" title="Janette" alt="avatar">
+											<div class="status">
+												<i class="material-icons offline">fiber_manual_record</i>
+											</div>
+											<div class="data">
+												<p>Mildred has a birthday today. Wish him all the best.</p>
+												<span>Jul 19, 2017</span>
+											</div>
+										</a>
+
+
+									</div>
+								</div>
+							</div>
+<!-- End of Notifications -->
+
+
+
+
+
+
+
+
+
+							<!-- Start of Settings -->
+							<div class="tab-pane fade" id="settings">
+								<div class="settings">
+									<div class="profile">
+										<img class="avatar-xl" src="dist/img/avatars/avatar-male-1.jpg" alt="avatar">
+										<h1><a href="#">Michael Knudsen</a></h1>
+
+
+									</div>
+									<div class="categories" id="accordionSettings">
+
+										<!-- Start of My Account -->
+										<div class="category">
+											<a href="#" class="title collapsed" id="headingOne" data-toggle="collapse"
+												data-target="#collapseOne" aria-expanded="true"
+												aria-controls="collapseOne">
+												<i class="material-icons md-30 online">person_outline</i>
+												<div class="data">
+													<h5>My Account</h5>
+													<p>Update your profile details</p>
+												</div>
+												<i class="material-icons">keyboard_arrow_right</i>
+											</a>
+											<div class="collapse" id="collapseOne" aria-labelledby="headingOne"
+												data-parent="#accordionSettings">
+												<div class="content">
+													<div class="upload">
+														<div class="data">
+															<img class="avatar-xl"
+																src="dist/img/avatars/avatar-male-1.jpg" alt="image">
+															<label>
+																<input type="file">
+																<span class="btn button">Upload avatar</span>
+															</label>
+														</div>
+														<p>For best results, use an image at least 256px by 256px in
+															either .jpg or .png format!</p>
+													</div>
+													<form>
+														<div class="parent">
+															<div class="field">
+																<label for="firstName">First name <span>*</span></label>
+																<input type="text" class="form-control" id="firstName"
+																	placeholder="First name" value="Michael" required>
+															</div>
+															<div class="field">
+																<label for="lastName">Last name <span>*</span></label>
+																<input type="text" class="form-control" id="lastName"
+																	placeholder="Last name" value="Knudsen" required>
+															</div>
+														</div>
+														<div class="field">
+															<label for="email">Email <span>*</span></label>
+															<input type="email" class="form-control" id="email"
+																placeholder="Enter your email address"
+																value="michael@gmail.com" required>
+														</div>
+
+														<button class="btn btn-link w-100">Delete Account</button>
+														<button type="submit" class="btn button w-100">Apply</button>
+													</form>
+												</div>
+											</div>
+										</div>
+										<!-- End of My Account -->
+
+
+
+
+
+
+										<!-- Start of Logout -->
+										<div class="category">
+
+											<i class="material-icons md-30 online">power_settings_new</i>
+											<div class="data">
+												<h5>Power Off</h5>
+												<p>Log out of your account</p>
+											</div>
+											<i class="material-icons">keyboard_arrow_right</i>
+											</a>
+										</div>
+										<!-- End of Logout -->
+
+									</div>
+								</div>
+							</div>
+							<!-- End of Settings -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- End of Sidebar -->
+
+
+
+
+
+
+<!-- message full bady start -->
+
+<div class="main">
+    <div class="tab-content" id="nav-tabContent">
+        <!-- Start of Chat -->
+        <div class="chat" id="chat1">
+            <div class="top">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="inside">
+                            <a href="#"><img class="avatar-md" src="dist/img/avatars/avatar-female-5.jpg"
+                                    data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar"></a>
+                            <div class="status">
+                                <i class="material-icons online">fiber_manual_record</i>
+                            </div>
+                            <div class="data">
+                                <h5><a href="#">Keith Morris</a></h5>
+                                <span>Active now</span>
+                            </div>
+                            <div class="dropdown">
+                                <button class="btn" data-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false"><i class="material-icons md-30">more_vert</i></button>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
+                                    <button class="dropdown-item"><i class="material-icons">block</i>Block Contact</button>
+                                    <button class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content" id="content">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="date">
+                            <hr>
+                            <span>Yesterday</span>
+                            <hr>
+                        </div>
+                        <div class="message">
+                            <img class="avatar-md" src="dist/img/avatars/avatar-female-5.jpg"
+                                data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
+                            <div class="text-main">
+                                <div class="text-group">
+                                    <div class="text">
+                                        <p>We've got some killer ideas kicking about already.</p>
+                                    </div>
+                                </div>
+                                <span>09:46 AM</span>
+                            </div>
+                        </div>
+                        <div class="message me">
+                            <div class="text-main">
+                                <div class="text-group me">
+                                    <div class="text me">
+                                        <p>Can't wait! How are we coming along with the client?</p>
+                                    </div>
+                                </div>
+                                <span>11:32 AM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="bottom">
+                        <form class="position-relative w-100">
+                            <textarea class="form-control" placeholder="Start typing for reply..." rows="1"></textarea>
+                            <button class="btn emoticons"><i class="material-icons">insert_emoticon</i></button>
+                            <button type="submit" class="btn send"><i class="material-icons">send</i></button>
+                        </form>
+                        <label>
+                            <input type="file">
+                            <span class="btn attach d-sm-block d-none"><i class="material-icons">attach_file</i></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Chat -->
+    </div>
+</div>
+
+
+
+
+<!-- message full bady end -->
+
+
+
+
+
+
+
+
+			
+
+
+		</div> <!-- Layout -->
+	</main>
+
+
+
+
+	<!-- Bootstrap/Swipe core JavaScript
+		================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="dist/js/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script>window.jQuery || document.write('<script src="dist/js/vendor/jquery-slim.min.js"><\/script>')</script>
+	<script src="dist/js/vendor/popper.min.js"></script>
+	<script src="dist/js/swipe.min.js"></script>
+	<script src="dist/js/bootstrap.min.js"></script>
+	<script>
+		function scrollToBottom(el) { el.scrollTop = el.scrollHeight; }
+		scrollToBottom(document.getElementById('content'));
+	</script>
+</body>
+
+</html>
