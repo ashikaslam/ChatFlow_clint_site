@@ -15,10 +15,13 @@ const landing = () => {
       if (data.status === 1) {
         localStorage.clear();
         localStorage.setItem("user_id", data.user_id);
-
         localStorage.setItem("access", data.access);
         localStorage.setItem("refresh", data.refresh);
-        localStorage.setItem("name", data.name);
+        localStorage.setItem("first_name", data.first_name);
+        localStorage.setItem("last_name", data.last_name);
+        localStorage.setItem("email", data.email);
+        localStorage.setItem("profile_id", data.profile_id);
+        localStorage.setItem("profile_pic", data.profile_pic);
 
         window.location.href = `home.html`;
       } else {

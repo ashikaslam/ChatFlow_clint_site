@@ -10,22 +10,34 @@
 	<link href="dist/css/lib/bootstrap.min.css" type="text/css" rel="stylesheet">
 	<!-- Swipe core CSS -->
 	<link href="dist/css/swipe.min.css" type="text/css" rel="stylesheet">
+	<link href="my_code/css/style.css" type="text/css" rel="stylesheet">
 	<!-- Favicon -->
 	<link href="dist/img/favicon.png" type="image/png" rel="icon">
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body>
+
+<!-- message -->
+
+<div id="messageContainer">
+    <span id="messageText"></span>
+    <div id="messageTimer"></div>
+</div>
+
+<!-- message -->
+
 	<main>
 		<div class="layout">
-			
 
-<!-- Start of Navigation -->
+
+			<!-- Start of Navigation -->
 			<div class="navigation">
 				<div class="container">
 					<div class="inside">
 						<div class="nav nav-tab menu">
-							<button class="btn"><img class="avatar-xl" src="dist/img/avatars/avatar-male-1.jpg"
-									alt="avatar"></button>
+							<button class="btn"><img id="user_profile_photo" class="avatar-xl"
+									src="dist/img/avatars/user-image.png" alt="avatar"></button>
 
 							<a href="#members" data-toggle="tab"><i class="material-icons">account_circle</i></a>
 
@@ -37,9 +49,10 @@
 
 							<button class="btn mode"><i class="material-icons">brightness_2</i></button>
 
-							<a href="#settings" data-toggle="tab"><i class="material-icons">settings</i></a>
-							
-							<button class="btn power" onclick="visitPage();"><i
+							<a href="#settings" data-toggle="tab"> <i class="material-icons"
+									onclick="setting_1(event)">settings</i></a>
+
+							<button class="btn power" onclick="logout(event)"><i
 									class="material-icons">power_settings_new</i></button>
 						</div>
 					</div>
@@ -51,7 +64,7 @@
 
 
 
-<!-- Start of Sidebar -->
+			<!-- Start of Sidebar -->
 			<div class="sidebar" id="sidebar">
 				<div class="container">
 					<div class="col-md-12">
@@ -84,7 +97,7 @@
 											</div>
 											<div class="data">
 												<h5>Mildred Bennett</h5>
-												<p>London, United Kingdom</p>
+												
 											</div>
 											<div class="person-add">
 												<i class="material-icons">person</i>
@@ -118,16 +131,12 @@
 											id="list-chat-list5" data-toggle="list" role="tab">
 											<img class="avatar-md" src="dist/img/avatars/avatar-male-4.jpg"
 												data-toggle="tooltip" data-placement="top" title="Mildred" alt="avatar">
-											<div class="status">
-												<i class="material-icons offline">fiber_manual_record</i>
-											</div>
-											<div class="new bg-green">
-												<span>+9</span>
-											</div>
+											
+											
 											<div class="data">
 												<h5>Mildred Bennett</h5>
-												<span>Thu</span>
-												<p>Unfortunately your session today has been cancelled!</p>
+												
+												<p>last massage</p>
 											</div>
 										</a>
 										<!-- single man in discus -->
@@ -188,8 +197,8 @@
 							<div class="tab-pane fade" id="settings">
 								<div class="settings">
 									<div class="profile">
-										<img class="avatar-xl" src="dist/img/avatars/avatar-male-1.jpg" alt="avatar">
-										<h1><a href="#">Michael Knudsen</a></h1>
+										<img  id = "user_profile_photo2" class="avatar-xl" src="dist/img/avatars/user-image.png" alt="avatar">
+										<h1 id= "user_name">your name</h1>
 
 
 									</div>
@@ -197,7 +206,8 @@
 
 										<!-- Start of My Account -->
 										<div class="category">
-											<a href="#" class="title collapsed" id="headingOne" data-toggle="collapse"
+
+											<a onclick="profile_data(event)" href="#" class="title collapsed" id="headingOne" data-toggle="collapse"
 												data-target="#collapseOne" aria-expanded="true"
 												aria-controls="collapseOne">
 												<i class="material-icons md-30 online">person_outline</i>
@@ -207,21 +217,35 @@
 												</div>
 												<i class="material-icons">keyboard_arrow_right</i>
 											</a>
+
 											<div class="collapse" id="collapseOne" aria-labelledby="headingOne"
 												data-parent="#accordionSettings">
 												<div class="content">
-													<div class="upload">
-														<div class="data">
-															<img class="avatar-xl"
-																src="dist/img/avatars/avatar-male-1.jpg" alt="image">
-															<label>
-																<input type="file">
-																<span class="btn button">Upload avatar</span>
-															</label>
-														</div>
-														<p>For best results, use an image at least 256px by 256px in
-															either .jpg or .png format!</p>
+												<!--  -->
+												<div class="upload">
+													<div class="data">
+														<img class="avatar-xl" id="photo_in_my_acc" src="dist/img/avatars/avatar-male-1.jpg" alt="image">
+														<label>
+															<input type="file" id="fileInput" accept="image/*">
+															<span class="btn button">Upload avatar</span>
+														</label>
 													</div>
+												</div>
+												
+												<script>
+												document.getElementById('fileInput').addEventListener('change', function(event) {
+													const file = event.target.files[0];
+													if (file) {
+														const reader = new FileReader();
+														reader.onload = function(e) {
+															document.getElementById('photo_in_my_acc').src = e.target.result;
+														}
+														reader.readAsDataURL(file);
+													}
+												});
+												</script>
+												
+                                         <!--  -->
 													<form>
 														<div class="parent">
 															<div class="field">
@@ -235,15 +259,10 @@
 																	placeholder="Last name" value="Knudsen" required>
 															</div>
 														</div>
-														<div class="field">
-															<label for="email">Email <span>*</span></label>
-															<input type="email" class="form-control" id="email"
-																placeholder="Enter your email address"
-																value="michael@gmail.com" required>
-														</div>
+														
 
-														<button class="btn btn-link w-100">Delete Account</button>
-														<button type="submit" class="btn button w-100">Apply</button>
+														
+														<button type="submit" class="btn button w-100" onclick="profile_data_update(event)">Apply</button>
 													</form>
 												</div>
 											</div>
@@ -257,14 +276,6 @@
 
 										<!-- Start of Logout -->
 										<div class="category">
-
-											<i class="material-icons md-30 online">power_settings_new</i>
-											<div class="data">
-												<h5>Power Off</h5>
-												<p>Log out of your account</p>
-											</div>
-											<i class="material-icons">keyboard_arrow_right</i>
-											</a>
 										</div>
 										<!-- End of Logout -->
 
@@ -283,104 +294,119 @@
 
 
 
-<!-- message full bady start -->
-
-<div class="main">
-    <div class="tab-content" id="nav-tabContent">
-        <!-- Start of Chat -->
-        <div class="chat" id="chat1">
-            <div class="top">
-                <div class="container">
-                    <div class="col-md-12">
-                        <div class="inside">
-                            <a href="#"><img class="avatar-md" src="dist/img/avatars/avatar-female-5.jpg"
-                                    data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar"></a>
-                            <div class="status">
-                                <i class="material-icons online">fiber_manual_record</i>
-                            </div>
-                            <div class="data">
-                                <h5><a href="#">Keith Morris</a></h5>
-                                <span>Active now</span>
-                            </div>
-                            <div class="dropdown">
-                                <button class="btn" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false"><i class="material-icons md-30">more_vert</i></button>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <button class="dropdown-item"><i class="material-icons">clear</i>Clear History</button>
-                                    <button class="dropdown-item"><i class="material-icons">block</i>Block Contact</button>
-                                    <button class="dropdown-item"><i class="material-icons">delete</i>Delete Contact</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="content" id="content">
-                <div class="container">
-                    <div class="col-md-12">
-                        <div class="date">
-                            <hr>
-                            <span>Yesterday</span>
-                            <hr>
-                        </div>
-                        <div class="message">
-                            <img class="avatar-md" src="dist/img/avatars/avatar-female-5.jpg"
-                                data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
-                            <div class="text-main">
-                                <div class="text-group">
-                                    <div class="text">
-                                        <p>We've got some killer ideas kicking about already.</p>
-                                    </div>
-                                </div>
-                                <span>09:46 AM</span>
-                            </div>
-                        </div>
-                        <div class="message me">
-                            <div class="text-main">
-                                <div class="text-group me">
-                                    <div class="text me">
-                                        <p>Can't wait! How are we coming along with the client?</p>
-                                    </div>
-                                </div>
-                                <span>11:32 AM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="col-md-12">
-                    <div class="bottom">
-                        <form class="position-relative w-100">
-                            <textarea class="form-control" placeholder="Start typing for reply..." rows="1"></textarea>
-                            <button class="btn emoticons"><i class="material-icons">insert_emoticon</i></button>
-                            <button type="submit" class="btn send"><i class="material-icons">send</i></button>
-                        </form>
-                        <label>
-                            <input type="file">
-                            <span class="btn attach d-sm-block d-none"><i class="material-icons">attach_file</i></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End of Chat -->
-    </div>
-</div>
-
-
-
-
-<!-- message full bady end -->
 
 
 
 
 
 
+			<!-- message full bady start -->
+
+			<div class="main">
+				<div class="tab-content" id="nav-tabContent">
+					<!-- Start of Chat -->
+					<div class="chat" id="chat1">
+						<div class="top">
+							<div class="container">
+								<div class="col-md-12">
+									<div class="inside">
+										<a href="#"><img class="avatar-md" src="dist/img/avatars/avatar-female-5.jpg"
+												data-toggle="tooltip" data-placement="top" title="Keith"
+												alt="avatar"></a>
+										<div class="status">
+											<i class="material-icons online">fiber_manual_record</i>
+										</div>
+										<div class="data">
+											<h5><a href="#">Keith Morris</a></h5>
+											<span>Active now</span>
+										</div>
+										<div class="dropdown">
+											<button class="btn" data-toggle="dropdown" aria-haspopup="true"
+												aria-expanded="false"><i
+													class="material-icons md-30">more_vert</i></button>
+											<div class="dropdown-menu dropdown-menu-right">
+												<button class="dropdown-item"><i class="material-icons">clear</i>Clear
+													History</button>
+												<button class="dropdown-item"><i class="material-icons">block</i>Block
+													Contact</button>
+												<button class="dropdown-item"><i class="material-icons">delete</i>Delete
+													Contact</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="content" id="content">
+							<div class="container">
+								<div class="col-md-12">
+									<div class="date">
+										<hr>
+										<span>Yesterday</span>
+										<hr>
+									</div>
+									<div class="message">
+										<img class="avatar-md" src="dist/img/avatars/avatar-female-5.jpg"
+											data-toggle="tooltip" data-placement="top" title="Keith" alt="avatar">
+										<div class="text-main">
+											<div class="text-group">
+												<div class="text">
+													<p>We've got some killer ideas kicking about already.</p>
+												</div>
+											</div>
+											<span>09:46 AM</span>
+										</div>
+									</div>
+									<div class="message me">
+										<div class="text-main">
+											<div class="text-group me">
+												<div class="text me">
+													<p>Can't wait! How are we coming along with the client?</p>
+												</div>
+											</div>
+											<span>11:32 AM</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="container">
+							<div class="col-md-12">
+								<div class="bottom">
+									<form class="position-relative w-100">
+										<textarea class="form-control" placeholder="Start typing for reply..."
+											rows="1"></textarea>
+										<button class="btn emoticons"><i
+												class="material-icons">insert_emoticon</i></button>
+										<button type="submit" class="btn send"><i
+												class="material-icons">send</i></button>
+									</form>
+									<label>
+										<input type="file">
+										<span class="btn attach d-sm-block d-none"><i
+												class="material-icons">attach_file</i></span>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- End of Chat -->
+				</div>
+			</div>
 
 
-			
+
+
+			<!-- message full bady end -->
+
+
+
+
+
+
+
+
+
 
 
 		</div> <!-- Layout -->
@@ -392,6 +418,7 @@
 	<!-- Bootstrap/Swipe core JavaScript
 		================================================== -->
 	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="my_code/js/home.js"></script>
 	<script src="dist/js/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
